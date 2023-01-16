@@ -3,6 +3,7 @@ import {useState} from "react"
 import { Search } from "../Search/Search"
 import {CovidApi} from "../API/API"
 import { AddSearch } from "../AddSearch/AddSearch"
+import { Graph } from "../Graph/Graph"
 
 export type CountryListType = {
     id: number
@@ -53,6 +54,7 @@ export const Main = () => {
                 )}
             </div>
             <div><AddSearch onButtonClick={callBackAddSearchField}/></div>
+            <div><Graph countryList={countryList}/></div>
         </div>
     )
 }

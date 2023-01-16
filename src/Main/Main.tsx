@@ -1,9 +1,10 @@
 import React from "react"
 import {useState} from "react"
-import { Search } from "../Search/Search"
+import {Search} from "../Search/Search"
 import {CovidApi} from "../API/API"
-import { AddSearch } from "../AddSearch/AddSearch"
-import { Graph } from "../Graph/Graph"
+import {AddSearch} from "../AddSearch/AddSearch"
+import {Graph} from "../Graph/Graph"
+import styles from "./main.module.sass"
 
 export type CountryListType = {
     id: number
@@ -30,31 +31,32 @@ export const Main = () => {
         }
     }
     const callBackRemoveSearchField = (id: number) => {
-            let newValues = [...countryList]
-            const countryIndex = newValues.map(e => e.id).indexOf(id)
-            newValues.splice(countryIndex, 1)
-            setCountryList(newValues)
+        let newValues = [...countryList]
+        const countryIndex = newValues.map(e => e.id).indexOf(id)
+        newValues.splice(countryIndex, 1)
+        setCountryList(newValues)
     }
     const callBackAddSearchField = () => {
-            let lastId = countryList.slice(-1)
-            let newId = Number(lastId[0].id) + 1
-            const newValues: CountryListType[] = [...countryList, {id: newId, country: "", data: []}]
-            setCountryList(newValues)
-        }
+        let lastId = countryList.slice(-1)
+        let newId = Number(lastId[0].id) + 1
+        const newValues: CountryListType[] = [...countryList, {id: newId, country: "", data: []}]
+        setCountryList(newValues)
+    }
 
     return (
-        <div>
-            <div>
-                {countryList.map((el: CountryListType) => <Search key={el.id}
-                                                                  id={el.id}
-                                                                  country={el.country}
-                                                                  onSubmit={callBackFind}
-                                                                  onRemove={callBackRemoveSearchField}
-                                                                 />
-                )}
+        <div className={styles.gridContainer}>
+            <div className={styles.header}>
+                <div className={styles.search}>
+                    {countryList.map((el: CountryListType) => <Search key={el.id}
+                                                                      id={el.id}
+                                                                      country={el.country}
+                                                                      onSubmit={callBackFind}
+                                                                      onRemove={callBackRemoveSearchField}/>
+                    )}
+                </div>
+                <div className={styles.btnSearch}><AddSearch onButtonClick={callBackAddSearchField}/></div>
             </div>
-            <div><AddSearch onButtonClick={callBackAddSearchField}/></div>
-            <div><Graph countryList={countryList}/></div>
+            <div className={styles.footer}><Graph countryList={countryList}/></div>
         </div>
     )
 }

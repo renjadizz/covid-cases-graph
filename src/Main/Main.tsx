@@ -1,7 +1,8 @@
 import React from "react"
 import {useState} from "react"
 import { Search } from "../Search/Search"
-import {CovidApi} from "../API/API";
+import {CovidApi} from "../API/API"
+import { AddSearch } from "../AddSearch/AddSearch"
 
 export type CountryListType = {
     id: number
@@ -33,6 +34,12 @@ export const Main = () => {
             newValues.splice(countryIndex, 1)
             setCountryList(newValues)
     }
+    const callBackAddSearchField = () => {
+            let lastId = countryList.slice(-1)
+            let newId = Number(lastId[0].id) + 1
+            const newValues: CountryListType[] = [...countryList, {id: newId, country: "", data: []}]
+            setCountryList(newValues)
+        }
 
     return (
         <div>
@@ -45,6 +52,7 @@ export const Main = () => {
                                                                  />
                 )}
             </div>
+            <div><AddSearch onButtonClick={callBackAddSearchField}/></div>
         </div>
     )
 }

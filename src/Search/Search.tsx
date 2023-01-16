@@ -24,6 +24,7 @@ export const Search = (props: SearchPropsType) => {
             dropdownMatchSelectWidth={false}
             allowClear
             showSearch
+            value={props.country}
             options={countryData.map((country) => {
                 return ({label: country.country, value: country.country})
             })}

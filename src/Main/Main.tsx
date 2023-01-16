@@ -21,12 +21,18 @@ export const Main = () => {
         if (newValues.length !== 0) {
             newValues.forEach((el, i) => {
                     if (el.id === id) {
-                        newValues[i].country = value
-                        CovidApi.getCountryData(value).then(data => {
-                            newValues[i].data = data.response
-                        }).then(() => {
+                        if (newValues.find(({country}) => country === value)) {
+                            newValues[i].country = ""
+                            setErrorMessage("Country already in Graph")
                             setCountryList(newValues)
-                        })
+                        } else {
+                            newValues[i].country = value
+                            CovidApi.getCountryData(value).then(data => {
+                                newValues[i].data = data.response
+                            }).then(() => {
+                                setCountryList(newValues)
+                            })
+                        }
                     }
                 }
             )

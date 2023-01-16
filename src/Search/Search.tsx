@@ -1,6 +1,7 @@
 import React from "react"
 import countryData from '../data/all_countries.json'
 import {Select} from 'antd'
+import './search.css'
 
 type SearchPropsType = {
     id: number
@@ -19,14 +20,14 @@ export const Search = (props: SearchPropsType) => {
     return (
         <Select
             placeholder="Select a country"
-            size = "middle"
-            dropdownMatchSelectWidth = {false}
+            size="middle"
+            dropdownMatchSelectWidth={false}
             allowClear
             showSearch
             options={countryData.map((country) => {
                 return ({label: country.country, value: country.country})
             })}
-            style={{ width: 200 }}
+            style={{width: 200}}
             onClear={onClear}
             onSelect={onSelect}
         />

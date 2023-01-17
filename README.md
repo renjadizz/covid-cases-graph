@@ -1,4 +1,4 @@
-# Test project that recieves covid data by countries
+# React test project that recieves covid data by countries
 ## used libraries
 * Axios
 * Ant Design

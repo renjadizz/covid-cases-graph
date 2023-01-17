@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/covid-cases-graph/static/css/main.36de969d.css",
+    "main.js": "/covid-cases-graph/static/js/main.f73a512c.js",
+    "static/js/787.c4cdef3e.chunk.js": "/covid-cases-graph/static/js/787.c4cdef3e.chunk.js",
+    "index.html": "/covid-cases-graph/index.html",
+    "main.36de969d.css.map": "/covid-cases-graph/static/css/main.36de969d.css.map",
+    "main.f73a512c.js.map": "/covid-cases-graph/static/js/main.f73a512c.js.map",
+    "787.c4cdef3e.chunk.js.map": "/covid-cases-graph/static/js/787.c4cdef3e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36de969d.css",
+    "static/js/main.f73a512c.js"
+  ]
+}
